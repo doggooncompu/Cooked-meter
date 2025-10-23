@@ -8,8 +8,11 @@ app.get("/", (req,res) =>{
   res.sendFile(__dirname+"/index.html")
 });
 
-app.get("/meter", (req,res)=>{
+app.get("/Cooked-meter/meter", (req,res)=>{
   res.sendFile(__dirname+"/cooked.json");
+})
+app.get("/Cooked-meter/test", (req,res)=>{
+  res.send("<h1>hello</h1>");
 })
 
 app.listen(port, () => {
