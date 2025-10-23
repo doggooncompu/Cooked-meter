@@ -1,12 +1,20 @@
+
+<script src="https://doggooncompu.github.io/Cooked-meter/cooked.js"></script>
+<title>COOKED METER</title>
+
+<h1>hello mortals</h1>
+<body>This is the cooked meter. it shows how cooked I am</body>
 <script>
 async function loadmeter(){
     const url = "doggooncompu.github.io/CS-club-intro/meter";
     var data = await fetch(url, {"method":"GET"});
-    alert(data);}
+    var container = document.getElementById("cooked");
+     var meter = document.createElement("meter");
+     meter.value = data.json.cooked_level;
+    container.append(meter);
+    }
 </script>
-<script src="https://doggooncompu.github.io/Cooked-meter/cooked.js"></script>
-
-<h1>hello mortals</h1>
-<body>This is the cooked meter. it shows how cooked I am</body>
-
-<div id="cooked" onload="loadmeter()"></div>
+<div id="cooked"></div>
+<script>
+    loadmeter();
+</script>
