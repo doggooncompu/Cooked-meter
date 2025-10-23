@@ -11,8 +11,8 @@ app.get("/", (req,res) =>{
 app.get("/meter", (req,res)=>{
   res.sendFile(__dirname+"/cooked.json");
 })
-app.get("/cooked.js", (req,res)=>{
-  res.sendFile(__dirname+"cooked.js");
+app.get("/cooked", (req,res)=>{
+  res.sendFile(__dirname+"/cooked.js");
 });
 
 
