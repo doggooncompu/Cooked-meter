@@ -1,7 +1,7 @@
 async function loadmeter(){
     const url = "doggooncompu.github.io/CS-club-intro/meter";
     var data = await fetch(url, {
-        "method":"GET"
+        "method":"POST"
     });
     console.log(data);
 }

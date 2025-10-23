@@ -11,10 +11,6 @@ app.get("/", (req,res) =>{
 app.get("/meter", (req,res)=>{
   res.sendFile(__dirname+"/cooked.json");
 })
-app.get("/cooked", (req,res)=>{
-  res.sendFile(__dirname+"/cooked.js");
-});
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
