@@ -1,5 +1,5 @@
 async function loadmeter(){
-    const url = "doggooncompu.github.io/CS-club-intro/meter";
+    const url = "https://cooked-meter-phi.vercel.app/meter";
     var data = await fetch(url, {
         "method":"GET"
     });
