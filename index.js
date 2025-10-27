@@ -8,7 +8,7 @@ app.get("/", (req,res) =>{
   res.sendFile(__dirname+"/index.html")
 });
 
-app.get("/Cooked-meter/meter", (req,res)=>{
+app.get("/meter", (req,res)=>{
   res.sendFile(__dirname+"/cooked.json");
 })
 app.get("/Cooked-meter/test", (req,res)=>{
