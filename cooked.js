@@ -4,4 +4,5 @@ async function loadmeter(){
         "method":"GET"
     });
     console.log(data);
+    console.log(data.text);
 }
