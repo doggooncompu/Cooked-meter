@@ -4,5 +4,7 @@ async function loadmeter(){
         "method":"GET"
     });
     console.log(data);
-    console.log(data.text.toString);
+    var meter = document.createElement("meter").value(data.json.cooked_level);
+    var div = document.getElementById("cooked");
+    div.append(meter);
 }
