@@ -4,10 +4,14 @@ async function loadmeter(){
   .then(response => response.json()) // Parses the response body as JSON
   .then(data => {
     var div = document.getElementById("cooked");
+
     var meter = document.createElement("meter");
-      meter.value = data.cooked_level;
+    meter.value = data.cooked_level;
+    var label = document.createElement("label");
+    label.textContent = "subject:" + data.subject + "percentage: ", data.cooked_level;
       
     div.append(meter);
+    div.append(label);
   })
   .catch(error => {
     console.error('Error fetching or parsing data:', error);
