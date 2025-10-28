@@ -1,11 +1,16 @@
 async function loadmeter(){
     const url = "https://cooked-meter-phi.vercel.app/meter";
-    var data = await fetch(url, {
-        "method":"GET"
-    });
-    console.log(data);
+    fetch(url)
+  .then(response => response.json()) // Parses the response body as JSON
+  .then(data => {
     var div = document.getElementById("cooked");
-    var meter = document.createElement("meter").setAttribute("value", data.json.cooked_level);
+    var meter = document.createElement("meter");
+      meter.value = data.cooked_level;
+      
     div.append(meter);
+  })
+  .catch(error => {
+    console.error('Error fetching or parsing data:', error);
+  });
     
 }
