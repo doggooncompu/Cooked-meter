@@ -9,6 +9,7 @@ app.get("/", (req,res) =>{
 });
 
 app.get("/meter", (req,res)=>{
+  res.contentType("json");
   res.sendFile(__dirname+"/cooked.json");
 })
 app.get("/Cooked-meter/test", (req,res)=>{
