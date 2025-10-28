@@ -5,11 +5,14 @@ async function loadmeter(){
   .then(data => {
     var div = document.getElementById("cooked");
 
+    var label = document.createElement("p");
+    label.textContent = "subject:" + data.subject + "percentage: ", data.cooked_level;
+
     var meter = document.createElement("meter");
     meter.value = data.cooked_level;
-    var label = document.createElement("label");
-    label.textContent = "<br> subject:" + data.subject + "percentage: ", data.cooked_level;
+
     console.log(data.cooked_level);
+    
     div.append(meter);
     div.append(label);
   })
