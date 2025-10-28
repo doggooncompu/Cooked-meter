@@ -8,8 +8,8 @@ async function loadmeter(){
     var meter = document.createElement("meter");
     meter.value = data.cooked_level;
     var label = document.createElement("label");
-    label.textContent = "subject:" + data.subject + "percentage: ", data.cooked_level;
-      
+    label.textContent = "<br> subject:" + data.subject + "percentage: ", data.cooked_level;
+    console.log(data.cooked_level);
     div.append(meter);
     div.append(label);
   })
