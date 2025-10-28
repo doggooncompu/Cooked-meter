@@ -6,12 +6,11 @@ function loadmeter(){
     var div = document.getElementById("cooked");
 
     var label = document.createElement("p");
-    label.textContent = "subject:" + data.subject + " percentage of cooked: " + data.cooked_level;
+    label.textContent = "subject:" + data.subject + "      percentage of cooked: " + data.cooked_level;
 
     var meter = document.createElement("meter");
     meter.value = data.cooked_level;
 
-    console.log(data.cooked_level);
 
     div.append(meter);
     div.append(label);
