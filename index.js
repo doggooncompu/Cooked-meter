@@ -2,6 +2,7 @@
 const express = require("express")
 const fs = require("fs");
 const file = require(__dirname+"/cooked.json");
+const bodyParser = require('body-parser');
 
 const app = express()
 const port = 8080
