@@ -1,0 +1,14 @@
+<html>
+
+<h1>Login</h1>
+<form onsubmit="submit()" method="post">
+    <input type="password" name="password"></input>
+    <input type="submit"></input>
+</form>
+
+</form>
+<script> 
+function submit(){
+    fetch("/logsub", {method: "POST", body:{ password:document.getElementsByName("password").values}});
+}</script>
+</html>
