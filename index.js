@@ -7,13 +7,16 @@ const bodyParser = require('body-parser');
 const app = express()
 const port = 8080
 const session = require('express-session');
+
+
 app.use(session({
   secret: 'your_secret_key', // A secret key to sign the session ID cookie. Replace with a strong, unique value.
     resave: false, // Don't save session if unmodified
       saveUninitialized: true, // Save uninitialized sessions
       cookie: { secure: true } // Set to true if using HTTPS
     }));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req,res) =>{
   res.sendFile(__dirname+"/index.html")
@@ -30,7 +33,6 @@ app.get("/meter", (req,res)=>{
 
 
 app.post("/login", (req,res)=>{
-
   if(req.body.password == "password"){
     req.session.password = "password";
     console.log("Usr authenticated!");
