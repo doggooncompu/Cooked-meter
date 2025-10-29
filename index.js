@@ -28,7 +28,7 @@ app.get("/meter", (req,res)=>{
 })
 
 
-app.post("/logsub", (req,res)=>{
+app.post("/login", (req,res)=>{
 
   if(req.body.password == "password"){
     req.session.password = "password";
