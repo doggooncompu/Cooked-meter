@@ -60,13 +60,14 @@ app.get("/submit", (req,res)=>{
 app.post("/login", (req,res)=>{
   console.log(req.body);
   console.log(req.body.password);
-  
-  if(!req.body.password){
+  const password = req.body.password && req.body;
+
+  if(!password){
     res.send("no password provided");
     return;
   }
 
-  if(req.body.password == 'password'){
+  if(password == 'password'){
     req.session.authenticated = true;
     req.session.password = 'password';
     console.log(req.session);
