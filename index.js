@@ -15,12 +15,17 @@ app.use(session({
       saveUninitialized: true, // Save uninitialized sessions
       cookie: { secure: true } // Set to true if using HTTPS
     }));
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 app.get("/", (req,res) =>{
   res.sendFile(__dirname+"/index.html")
 });
+
 
 app.get("/login", (req,res)=>{
   res.sendFile(__dirname+"/login.html");
@@ -38,6 +43,7 @@ app.get("/submit", (req,res)=>{
 app.post("/login", (req,res)=>{
   console.log(req.body);
   console.log(req.body.password);
+  
   if(req.body.password == 'password'){
     req.session.cookie = 'password';
     console.log(req.session.cookie);
