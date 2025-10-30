@@ -31,6 +31,9 @@ app.get("/meter", (req,res)=>{
   res.sendFile(__dirname+"/cooked.json");
 })
 
+app.get("/submit", (req,res)=>{
+  res.sendFile(__dirname+"/submit.html");
+})
 
 app.post("/login", (req,res)=>{
   if(req.body.password == "password"){
