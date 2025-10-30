@@ -9,6 +9,6 @@
 </form>
 <script> 
 function submitform(){
-    fetch("/login", {method: "POST", body:{ password:document.getElementsByName("password").values}});
+    fetch("/login", {method: "POST", body:{ "password":document.getElementsByName("password").values}});
 }</script>
 </html>
