@@ -38,8 +38,9 @@ app.get("/submit", (req,res)=>{
 app.post("/login", (req,res)=>{
   console.log(req.body);
   console.log(req.body.password);
-  if(req.body.password == "password"){
-    req.session.password = "password";
+  if(req.body.password == 'password'){
+    req.session.cookie = 'password';
+    console.log(req.session.cookie);
     console.log("Usr authenticated!");
     res.send("authenticated");
   }
@@ -50,7 +51,7 @@ app.post("/login", (req,res)=>{
 })
 
 app.post("/submit", (req,res)=>{
-  if(req.session.password == "password"){
+  if(req.session.cookie == 'password'){
     const subject = req.body.subject;
     const level = req.body.level;
     var content = {"subject": subject, "cooked_level": level};
