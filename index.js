@@ -17,9 +17,6 @@ app.use(session({
     }));
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 
 
 app.get("/", (req,res) =>{
@@ -78,6 +75,9 @@ app.post("/submit", (req,res)=>{
     res.send("not authenticated!");
   }
 })
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/cooked.js", (req,res)=>{
   res.sendFile(__dirname+"/cooked.js");
