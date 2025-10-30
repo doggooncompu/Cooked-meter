@@ -22,23 +22,40 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
+
+
 app.get("/", (req,res) =>{
   res.sendFile(__dirname+"/index.html")
 });
+
+
+
 
 
 app.get("/login", (req,res)=>{
   res.sendFile(__dirname+"/login.html");
 })
 
+
+
+
+
 app.get("/meter", (req,res)=>{
   res.contentType("json");
   res.sendFile(__dirname+"/cooked.json");
 })
 
+
+
+
+
 app.get("/submit", (req,res)=>{
   res.sendFile(__dirname+"/submit.html");
 })
+
+
+
+
 
 app.post("/login", (req,res)=>{
   console.log(req.body);
@@ -55,6 +72,12 @@ app.post("/login", (req,res)=>{
   }
 
 })
+
+
+
+
+
+
 
 app.post("/submit", (req,res)=>{
   if(req.session.cookie == 'password'){
@@ -80,9 +103,20 @@ app.post("/submit", (req,res)=>{
 })
 
 
+
+
+
+
+
+
 app.get("/cooked.js", (req,res)=>{
   res.sendFile(__dirname+"/cooked.js");
 })
+
+
+
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
