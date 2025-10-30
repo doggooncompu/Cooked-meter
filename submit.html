@@ -1,0 +1,13 @@
+<html>
+    <h1>change</h1>
+    <form onsubmit=" submitform()" >
+        <input name="subject"></input>
+        <input name="level"></input>
+        <input type="submit"></input>
+    </form>
+    <script>
+        function submitform(){
+            fetch("/submit", {"method":"POST",body:{"subject":document.getElementsByName("subject").values, "level":document.getElementsByName("level").values}});
+        }
+    </script>
+</html>
