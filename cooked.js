@@ -1,5 +1,5 @@
 function loadmeter(){
-    const url = "https://cooked-meter-phi.vercel.app/meter";
+    const url = "/meter";
     fetch(url)
   .then(response => response.json()) // Parses the response body as JSON
   .then(data => {
