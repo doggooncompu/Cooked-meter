@@ -36,6 +36,7 @@ app.get("/submit", (req,res)=>{
 })
 
 app.post("/login", (req,res)=>{
+  console.log(req.body);
   if(req.body.password == "password"){
     req.session.password = "password";
     console.log("Usr authenticated!");
