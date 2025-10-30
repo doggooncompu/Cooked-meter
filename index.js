@@ -43,10 +43,10 @@ app.get("/submit", (req,res)=>{
 app.post("/login", (req,res)=>{
   console.log(req.body);
   console.log(req.body.password);
-  
+
   if(req.body.password == 'password'){
-    req.session.cookie = 'password';
-    console.log(req.session.cookie);
+    req.session.password = 'password';
+    console.log(req.session);
     console.log("Usr authenticated!");
     res.send("authenticated");
   }
