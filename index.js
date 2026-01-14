@@ -73,7 +73,6 @@ app.post("/login", (req,res)=>{
     console.log(req.session);
     console.log("Usr authenticated!");
     res.send("authenticated");
-    res.redirect("https://cooked-meter-git-main-doggooncompus-projects.vercel.app/submit");
   }
   else{
     res.send("wrong password");
