@@ -9,6 +9,8 @@ const port = 8080
 const session = require('express-session');
 app.set('trust proxy', 1);
 
+var cooked = {"subject" : "PLACEHOLDER", "level": 0.0};
+
 
 app.use(session({
   secret: 'wefwehfwefwefefwrehrgwefiwuierf', // A secret key to sign the session ID cookie. Replace with a strong, unique value.
@@ -44,7 +46,7 @@ app.get("/login", (req,res)=>{
 
 app.get("/meter", (req,res)=>{
   res.contentType("json");
-  res.sendFile(__dirname+"/cooked.json");
+  res.send(cooked);
 })
 
 
@@ -102,14 +104,9 @@ app.post("/submit", (req,res)=>{
 
     console.log("authenticated user submitted a change");
 
-    fs.writeFile(__dirname+"/cooked.json",JSON.stringify(content), (err) =>{
-
-      if(err){
-        console.log(err);
-      }
-      console.log("sucessfully written!");
-
-    })
+    cooked.subject = content.subject;
+    cooked.level = content.level;
+    
     res.send("change submitted");
   }
   else{
