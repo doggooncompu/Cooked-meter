@@ -105,7 +105,7 @@ app.post("/submit", (req,res)=>{
     console.log("authenticated user submitted a change");
 
     cooked.subject = content.subject;
-    cooked.cooked_level = content.level;
+    cooked.cooked_level = content.cooked_level;
 
     res.send("change submitted");
   }
