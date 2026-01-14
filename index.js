@@ -7,13 +7,15 @@ const bodyParser = require('body-parser');
 const app = express()
 const port = 8080
 const session = require('express-session');
+app.set('trust proxy', 1);
 
 
 app.use(session({
   secret: 'wefwehfwefwefefwrehrgwefiwuierf', // A secret key to sign the session ID cookie. Replace with a strong, unique value.
     resave: false, // Don't save session if unmodified
       saveUninitialized: true, // Save uninitialized sessions
-      cookie: { secure: true } // Set to true if using HTTPS
+      cookie: { secure: true }, // Set to true if using HTTPS
+      sameSite:'none',
     }));
 
 
