@@ -9,7 +9,7 @@ const port = 8080
 const session = require('express-session');
 app.set('trust proxy', 1);
 
-var cooked = {"subject" : "PLACEHOLDER", "level": 0.5};
+var cooked = {"subject" : "PLACEHOLDER", "cooked_level": 0.5};
 
 
 app.use(session({
@@ -105,7 +105,7 @@ app.post("/submit", (req,res)=>{
     console.log("authenticated user submitted a change");
 
     cooked.subject = content.subject;
-    cooked.level = content.level;
+    cooked.cooked_level = content.level;
 
     res.send("change submitted");
   }
