@@ -102,7 +102,7 @@ app.post("/submit", (req,res)=>{
 
     console.log("authenticated user submitted a change");
 
-    fs.writeFile(__dirname+"/cooked.json",content, (err) =>{
+    fs.writeFile(__dirname+"/cooked.json",JSON.stringify(content), (err) =>{
 
       if(err){
         console.log(err);
