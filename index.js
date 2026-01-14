@@ -13,7 +13,7 @@ app.set('trust proxy', 1);
 app.use(session({
   secret: 'wefwehfwefwefefwrehrgwefiwuierf', // A secret key to sign the session ID cookie. Replace with a strong, unique value.
     resave: false, // Don't save session if unmodified
-      saveUninitialized: true, // Save uninitialized sessions
+      saveUninitialized: false, // Save uninitialized sessions
       cookie: { secure: true }, // Set to true if using HTTPS
       sameSite:'none',
     }));
