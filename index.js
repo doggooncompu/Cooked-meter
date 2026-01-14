@@ -68,8 +68,8 @@ app.post("/login", (req,res)=>{
   }
 
   if(password == "password"){
-    req.session.authenticated = true;
-    req.session.password = 'password';
+    req.session.cookie.authenticated = true;
+    req.session.cookie.password = 'password';
     console.log(req.session);
     console.log("Usr authenticated!");
     res.send("authenticated");
@@ -89,9 +89,9 @@ app.post("/login", (req,res)=>{
 
 app.post("/submit", (req,res)=>{
 
-  console.log("req.session:"+ req.session.authenticated);
+  console.log("req.session:"+ req.session.cookie.authenticated);
 
-  console.log("session password:" + req.session.password);
+  console.log("session password:" + req.session.cookie.password);
 
 
   if(req.session.authenticated == true){
