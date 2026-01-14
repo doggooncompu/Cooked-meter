@@ -67,12 +67,13 @@ app.post("/login", (req,res)=>{
     return;
   }
 
-  if(password == 'password'){
+  if(password == "password"){
     req.session.authenticated = true;
     req.session.password = 'password';
     console.log(req.session);
     console.log("Usr authenticated!");
     res.send("authenticated");
+    res.redirect("/submit");
   }
   else{
     res.send("wrong password");
