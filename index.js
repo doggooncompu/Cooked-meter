@@ -88,6 +88,12 @@ app.post("/login", (req,res)=>{
 
 
 app.post("/submit", (req,res)=>{
+
+  console.log("req.session:"+ req.session.cookie);
+
+  console.log("session password:" + req.session.cookie.password);
+
+  
   if(req.session.cookie == 'password'){
     const subject = req.body.subject;
     const level = req.body.level;
