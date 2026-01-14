@@ -73,7 +73,7 @@ app.post("/login", (req,res)=>{
     console.log(req.session);
     console.log("Usr authenticated!");
     res.send("authenticated");
-    res.redirect("/submit");
+    res.sendFile(__dirname + "/submit.html");
   }
   else{
     res.send("wrong password");
