@@ -3,6 +3,7 @@ const express = require("express")
 const fs = require("fs");
 const file = require(__dirname+"/cooked.json");
 const bodyParser = require('body-parser');
+const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const app = express()
 const port = 8080
@@ -10,6 +11,34 @@ const session = require('express-session');
 app.set('trust proxy', 1);
 
 var cooked = {"subject" : "PLACEHOLDER", "cooked_level": "0.5"};
+
+
+// Replace the placeholder with your Atlas connection string
+const uri = "mongodb+srv://admin:zqN8Jx6sXh7JB1Yd@cooked-meter.u0wzi4q.mongodb.net/?appName=Cooked-meter";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri,  {
+        serverApi: {
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true,
+        }
+    }
+);
+async function run() {
+  try {
+    // Connect the client to the server (optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+
 
 
 app.use(session({
