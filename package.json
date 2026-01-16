@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@vercel/functions": "^3.3.6",
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "express-session": "^1.18.2",

@@ -14,7 +14,7 @@ var cooked = {"subject" : "PLACEHOLDER", "cooked_level": "0.5"};
 
 
 // Replace the placeholder with your Atlas connection string
-const uri = "mongodb+srv://admin:zqN8Jx6sXh7JB1Yd@cooked-meter.u0wzi4q.mongodb.net/?appName=Cooked-meter";
+const uri = "mongodb+srv://Vercel-Admin-cooked_meter:4tX7Qwktg1EEh1BE@cooked-meter.wflutuh.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri,  {
         serverApi: {
