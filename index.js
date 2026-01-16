@@ -5,6 +5,7 @@ const file = require(__dirname+"/cooked.json");
 const bodyParser = require('body-parser');
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
+
 const app = express()
 const port = 8080
 const session = require('express-session');
@@ -24,6 +25,11 @@ const client = new MongoClient(uri,  {
         }
     }
 );
+
+const DB = client.db("myDB");
+const collection = DB.collection("data");
+
+
 async function run() {
   try {
     // Connect the client to the server (optional starting in v4.7)
@@ -132,11 +138,9 @@ app.post("/submit", (req,res)=>{
     var content = {"subject": subject, "cooked_level": level};
 
     console.log("authenticated user submitted a change");
-
-    cooked.subject = content.subject;
-    cooked.cooked_level = content.cooked_level;
-
+    update(content.subject, content.level);
     res.send("change submitted");
+
   }
   else{
     res.send("not authenticated!");
@@ -145,7 +149,15 @@ app.post("/submit", (req,res)=>{
 
 
 
+async function update(subject, level) {
+    var data = {"subject": subject, "cooked_level":level};
 
+    var result = await collection.insertOne(data);
+    var update = {$set:{"cooked": "indicator", "lastid": result.lastId}};
+    var query = {"cooked": "indicator"};
+
+    var updated = await collection.updateOne(query, update);
+}
 
 
 
